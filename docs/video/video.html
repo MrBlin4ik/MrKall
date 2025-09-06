@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Видеогалерея</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Видеогалерея</h1>
+
+  <!-- Основной плеер -->
+  <video id="mainVideo" controls width="800">
+    Ваш браузер не поддерживает видео.
+  </video>
+
+  <!-- Миниатюры-видео -->
+  <div class="video-thumbnails">
+    <video src="videos/ОптимусТанцор.mp4" muted></video>
+    <video src="videos/ЛегендарнаяАнимация.mp4" muted></video>
+    <video src="videos/БлинчикПрыгает.mp4" muted></video>
+	<video src="videos/recording.mp4" muted></video>
+  </div>
+
+  <div class="back-link">
+    <a href="../index.html">⬅ Назад в галерею</a>
+  </div>
+
+  <script>
+    const mainVideo = document.getElementById("mainVideo");
+    const thumbs = document.querySelectorAll(".video-thumbnails video");
+
+    thumbs.forEach(video => {
+      video.addEventListener("click", () => {
+        mainVideo.src = video.getAttribute("src");
+        mainVideo.play();
+      });
+      //video.play();
+      //video.loop = true;
+    });
+  </script>
+</body>
+</html>
